@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/*MAIN STYLES ON PAGE*/
+.grid-container{
+    background-color: #151324;
+    font-family: "Inter", sans-serif;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    max-width: 1500px;
+    margin: 0 auto;
+    row-gap: 1rem;
+}
+
+/*HEADER STYLING AND POSITIONING*/
+header {
+    grid-column: 1/14;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+}
+
+.logo{
+    grid-column: 7;
+    margin-top: 2rem;
+}
+
+/* styling of top navigation bar */
+.header-nav{
+    grid-row: 2;
+    grid-column: 4/11;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.header-nav button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color:#CD7CA4;
+    font-weight: bold;
+    margin: 0 1rem 0 1rem;
+}
+
+.header-nav button:hover{
+    color: #814E69;
+}
+
+.header-nav button:active{
+    color: #CD7CA4;
+}
+
+
+/*TOP SECTION STYLING*/
+.top-section{
+    grid-row: 3;
+    grid-column: 2/13;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+
+/* profile information card */
+.profile-information{
+    display: grid;
+    grid-column: 1/3;
+    background-color: #1A172C;
+    border: #25213F;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 1rem;
+    overflow-wrap: break-word;
+}
+
+/* styling when logged in*/
+.profile-picture{
+    max-width: 100%;
+}
+
+.username{
+    color: #CD7CA4;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.logout-button{
+    background-color: #CD7CA4;
+    border: 2px solid #814E69;
+    border-radius: 30px;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin-left: 0.4rem;
+    max-width: 100%;
+    color: #151324;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.logout-button:hover{
+    background-color: #814E69;
+}
+
+.logout-button:active{
+    background-color: #CD7CA4;
+}
+
+
+
+/* styling when logged out */
+.profile-picture,
+.username,
+.logout-button {
+    display: none;
+}
+
+.prompt-text{
+    color: #CD7CA4;
+    text-align: center;
+}
+
+.login-button{
+    background-color: #CD7CA4;
+    border: 2px solid #814E69;
+    border-radius: 30px;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin-left: 0.4rem;
+    max-width: 100%;
+    color: #151324;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.login-button:hover{
+    background-color: #814E69;
+}
+
+.login-button:active{
+    background-color: #CD7CA4;
+}
+
+.register-button{
+    background-color: #819A88;
+    border: 2px solid #6D8373;
+    border-radius: 30px;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    margin-left: 0.4rem;
+    max-width: 100%;
+    color: #151324;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 1rem;
+    margin-top: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.register-button:hover{
+    background-color: #6D8373;
+}
+.register-button:active{
+    background-color: #E0DFDD;
+}
+
+
+/* new post card */
+.new-post-section{
+    background-color: #1A172C;
+    border: 1px solid #25213F;
+    border-radius: 20px;
+    grid-column: 3/10;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+}
+
+.new-post-textarea{
+    grid-column: 1/7;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #25213F;
+    border-radius: 20px;
+    background-color: #151324;
+    height: 7rem;
+    color: #E0DFDD;
+    padding: 1rem;
+    font-size: 0.8rem;  
+}
+
+.post-button{
+    grid-row: 2;
+    grid-column: 6;
+    background-color: #CD7CA4;
+    border: 2px solid #814E69;
+    border-radius: 30px;
+    padding: 0.2rem 1rem 0.8rem 1rem;
+    margin: 0.5rem  1rem 0.5rem 0rem;
+    max-width: 100%;
+    max-height: 50%;
+    color: #151324;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.post-button:hover{
+    background-color: #814E69;
+}
+
+.post-button:active{
+    background-color: #CD7CA4;
+}
+
+
+/*MAIN FEED SECTION*/
+/* main feed container layout */
+.main-feed-container{
+    grid-row: 4;
+    grid-column: 2/13;
+    display: grid;
+    grid-template-rows:auto;
+    row-gap: 1rem;
+}
+
+/* logged out state message */
+.logged-out-prompt{
+    text-align: center;
+    color: #CD7CA4;
+    margin: 3rem;
+    background-color: #1A172C;
+    border: 1px solid #25213F;
+    border-radius: 20px;
+    padding: 5rem;
+    display: none;
+}
+
+/* blog post card styling including title, post content, like button, username and date*/
+.blog-post{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    background-color: #1A172C;
+    border: 1px solid #25213F;
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+
+.post-title{
+    grid-column: 1/6;
+    grid-row: 1;
+    color: #819A88;
+    font-size: 1.2rem
+
+}
+
+.post-content{
+    grid-column: 1/7;
+    grid-row: 2;
+    font-size: 1rem;
+    color: #E0DFDD;
+}
+
+.post-username{
+    grid-row: 3;
+    grid-column: 1;
+    font-size: 0.8rem;
+    color: #819A88;
+}
+
+.date{
+    grid-row: 3;
+    grid-column: 2;
+    font-size: 0.7rem;
+    color: #819A88;
+}
+
+.like-button{
+    background-color: transparent;
+    width: 2rem;
+    border: none;
+    grid-column: 6;
+    grid-row: 1;
+    justify-self: right;
+}
+
+.like-button svg{
+    fill: #819A88;
+}
+
+.like-button svg:hover{
+    fill:#E0DFDD ;
+}
+
+.like-button svg:active{
+    fill: #819A88;
+}
+
+
+
+/*LOG IN AND REGISTER FORM STYLING*/
+/* form container styling */
+.login-form{
+    grid-column: 5/10;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #1A172C;
+    border: 1px solid #25213F;
+    border-radius: 20px;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.login-form label{
+    font-size: 1rem;
+    color: #819A88;
+    grid-column: 2;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.login-form input{
+    grid-column: 2;
+    margin-bottom: 1rem;
+    background-color: #1A172C;
+    border: 1px solid #819A88;
+    border-radius: 20px;
+    color: #E0DFDD;
+    padding: 0.2rem;
+}
+
+.username-label{
+    grid-row: 1;
+}
+
+.username-input{
+    grid-row: 2;
+}
+
+.email-label{
+    grid-row: 3;
+}
+
+.email-input{
+    grid-row: 4;
+}
+
+.password-label{
+    grid-row: 5;
+}
+
+.password-input{
+    grid-row: 6;
+}
+
+.confirm-login{
+    grid-row: 7;
+    grid-column: 2;
+    background-color: #CD7CA4;
+    border: 2px solid #814E69;
+    border-radius: 30px;
+    margin-top: 2rem;
+    padding: 0.2rem;
+    font-weight: bold;
+    color: #151324;
+}
+
+.confirm-login:hover{
+    background-color: #814E69;
+}
+
+.confirm-login:active{
+    background-color: #CD7CA4;
+}
+
+/* register button styling for register form */
+.confirm-register{
+    grid-row: 7;
+    grid-column: 2;
+    background-color: #CD7CA4;
+    border: 2px solid #814E69;
+    border-radius: 30px;
+    margin-top: 2rem;
+    padding: 0.2rem;
+    font-weight: bold;
+    color: #151324;
+}
+
+.confirm-register:hover{
+    background-color: #814E69;
+}
+
+.confirm-register:active{
+    background-color: #CD7CA4;
+}
+
+/* honeypot hidden styling */
+#honeypot {
+    display: none;
+}
+
+
+/*MEDIA QUERIES*/
+
+/* breakpoint 1 */
+@media (max-width: 887px) {
+    .profile-information{
+        grid-row: 1;
+        grid-column: 1/10;
+    }
+
+
+    .new-post-section{
+        grid-row: 2;
+        grid-column: 1/10;
+    }
+  }
+
+/* breakpoint 2 */
+@media (max-width: 500px) {
+    .login-form{
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+/* breakpoint 3 */
+@media (max-width: 322px) {
+    .login-form{
+        min-width: 100px;
+    }
+  }
