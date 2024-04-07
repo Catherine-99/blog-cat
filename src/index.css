@@ -113,11 +113,11 @@ header {
 
 
 /* styling when logged out */
-.profile-picture,
+/*.profile-picture,
 .username,
 .logout-button {
     display: none;
-}
+}*/
 
 
 .prompt-text{
@@ -170,6 +170,11 @@ header {
     background-color: #E0DFDD;
 }
 
+.register-button,
+.login-button,
+.prompt-text {
+    display: none;
+}
 
 
 /* new post card */
