@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blog cat</title>
     <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body class="grid-container">
@@ -34,9 +35,9 @@
 
         <!--logged in state-->
         <article class="new-post-section">
-            <textarea class="new-post-title" placeholder="title..."></textarea>
-            <textarea class="new-post-textarea" placeholder="write your post here..."></textarea>
-            <button class="post-button" type="submit">post</button>
+            <textarea id="new-post-title" placeholder="title..." maxlength="5000"></textarea>
+            <textarea id="new-post-textarea" placeholder="write your post here..." maxlength="5000"></textarea>
+            <button id="post-button" type="submit">post</button>
         </article>
 
         <!--logged out state-->
@@ -46,12 +47,13 @@
     </section>
 
     <!--container where new posts will appear-->
-    <section class="main-feed-container">
+    <section id="main-feed-container">
         <!--logged out state-->
         <article class="logged-out-prompt">
             <p>log in or register <br> to see content</p>
         </article>
         <!--logged in state-->
+        <!--placeholder post element 
         <article class="blog-post">
             <h2 class="post-title">post title</h2>
             <p class="post-content">post content</p>
@@ -61,6 +63,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26"><path d="M17.869 3.889c-2.096 0-3.887 1.494-4.871 2.524c-.984-1.03-2.771-2.524-4.866-2.524C4.521 3.889 2 6.406 2 10.009c0 3.97 3.131 6.536 6.16 9.018c1.43 1.173 2.91 2.385 4.045 3.729c.191.225.471.355.765.355h.058c.295 0 .574-.131.764-.355c1.137-1.344 2.616-2.557 4.047-3.729C20.867 16.546 24 13.98 24 10.009c0-3.603-2.521-6.12-6.131-6.12"/></svg>
             </button>
         </article>
+        -->
     </section>
 </body>
 </html>
