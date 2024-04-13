@@ -31,4 +31,14 @@ async function createNewPost(user_id, post_title, post_content) {
     return newPost
 }
 
-module.exports = { getAllPosts, createNewPost};
+//create new user 
+async function createNewUser(username, email, password) {
+    const newUser = await pool.query(`
+    INSERT INTO UserTable (username, email, password)
+    VALUES (?,?,?)
+    `, [username, email,password])
+    return newUser
+}
+
+
+module.exports = { getAllPosts, createNewPost, createNewUser};

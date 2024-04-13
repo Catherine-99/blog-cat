@@ -2,8 +2,11 @@
 const express = require("express");
 const path = require("path");
 const { get } = require("https");
+const bcrypt = require("bcryptjs"); 
+//const session = require('express-session');
 
-const { getAllPosts, createNewPost } = require("./database");
+
+const { getAllPosts, createNewPost, createNewUser } = require("./database");
 
 
 
@@ -23,6 +26,22 @@ app.use(express.static(publicDirectory));
 app.get('/', (req, res) => {
     res.sendFile(path.join(publicDirectory, 'index.html'));
   });
+
+
+//route for user registration
+app.post('/register', async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+
+        //hash user password
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const result = await createNewUser(username, email, password);
+        res.json(result); 
+    } catch (error) {
+        console.error(error);
+
+    }
+});
 
 //route to retrieve all posts
 app.get('/posts', async (req, res) => {

@@ -1,3 +1,4 @@
+//CREATE NEW POST
 const postTitle = document.getElementById('new-post-title');
 const postContent = document.getElementById('new-post-textarea');
 const postButton = document.getElementById('post-button');
@@ -37,6 +38,8 @@ postButton.addEventListener('click', async function() {
         console.error(error);
     };
 });
+
+//DISPLAY POSTS ON MAIN FEED
 
 //retrieve posts from database:
 async function retrievePosts() {
@@ -103,7 +106,6 @@ function displayPosts(posts) {
 }
 
 retrievePosts();
-
 
 
 
