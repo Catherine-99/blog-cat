@@ -70,7 +70,6 @@ registerButton.addEventListener('click', async function registerUser(){
         } else {
             // registration failed
             console.error('Failed to register user');
-            // You can display an error message to the user here
         }
     } catch (error) {
         console.error('Error registering user:', error);

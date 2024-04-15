@@ -17,15 +17,18 @@
     <!--log in form -->
     <form class="login-form">
         <label class="username-label" for="username">username:</label>
-        <input class="username-input" type="text" name="username">
+        <input id="username-input" type="text" name="username">
         <label class="password-label" for="password">password:</label>
-        <input class="password-input" type="password" name="password">
-        <button class="confirm-login" type="submit">login</button>
+        <input id="password-input" type="password" name="password">
+        <button id="confirm-login" type="submit">login</button>
 
         <label for="honeypot" style="display: none;"></label>
         <input type="text" id="honeypot" name="honeypot" style="display: none;">
     
     </form>
+    <section id="message-box">
+        <p id="alert-text"></p>
+    </section>
 
 
 

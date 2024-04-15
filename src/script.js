@@ -109,6 +109,7 @@ retrievePosts();
 
 
 
+
 //log in and register 
 //filters and session managment 
 //like feature 

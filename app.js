@@ -2,21 +2,35 @@
 const express = require("express");
 const path = require("path");
 const { get } = require("https");
-const bcrypt = require("bcryptjs"); 
-//const session = require('express-session');
 
+//auth0 for log in and register
+const { auth } = require('express-openid-connect');
+//environmental variables
+const dotenv = require("dotenv");
+dotenv.config({path: './.env'});
 
-const { getAllPosts, createNewPost, createNewUser } = require("./database");
+const { getAllPosts, createNewPost } = require("./database");
 
+//config for auth0
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    baseURL: process.env.BASEURL,
+    clientID: process.env.CLIENTID,
+    issuerBaseURL: process.env.ISSUERBASEURL,
+    secret: process.env.SECRET
+  };
 
 
 //starting server on port 8000
 const app = express();
-app.listen(8000, () => {
-    console.log("Port 8000: server is running")
+app.listen(3000, () => {
+    console.log("Port 3000: server is running")
 });
 
+
 app.use(express.json());
+app.use(auth(config));
 
 //static files to be served from src folder
 const publicDirectory = path.join(__dirname, './src');
@@ -25,23 +39,10 @@ app.use(express.static(publicDirectory));
 //defining the route for root URL/homepage 
 app.get('/', (req, res) => {
     res.sendFile(path.join(publicDirectory, 'index.html'));
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
   });
 
 
-//route for user registration
-app.post('/register', async (req, res) => {
-    try {
-        const { username, email, password } = req.body;
-
-        //hash user password
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const result = await createNewUser(username, email, password);
-        res.json(result); 
-    } catch (error) {
-        console.error(error);
-
-    }
-});
 
 //route to retrieve all posts
 app.get('/posts', async (req, res) => {

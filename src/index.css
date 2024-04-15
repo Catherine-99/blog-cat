@@ -413,7 +413,7 @@ header {
     grid-row: 6;
 }
 
-.confirm-login{
+#confirm-login{
     grid-row: 7;
     grid-column: 2;
     background-color: #CD7CA4;
@@ -425,11 +425,11 @@ header {
     color: #151324;
 }
 
-.confirm-login:hover{
+#confirm-login:hover{
     background-color: #814E69;
 }
 
-.confirm-login:active{
+#confirm-login:active{
     background-color: #CD7CA4;
 }
 
