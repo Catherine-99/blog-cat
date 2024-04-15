@@ -5,6 +5,7 @@ const { get } = require("https");
 
 //auth0 for log in and register
 const { auth } = require('express-openid-connect');
+
 //environmental variables
 const dotenv = require("dotenv");
 dotenv.config({path: './.env'});
@@ -39,10 +40,26 @@ app.use(express.static(publicDirectory));
 //defining the route for root URL/homepage 
 app.get('/', (req, res) => {
     res.sendFile(path.join(publicDirectory, 'index.html'));
-    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
   });
 
+// route for checking authentication status
+app.get('/authstatus', (req, res) => {
+    if (req.oidc.isAuthenticated()) {
+        res.send('Logged in');
+    } else {
+        res.send('Logged out');
+    }
+});
 
+//route for checking username
+app.get('/username', (req, res) => {
+    if (req.oidc.isAuthenticated()) {
+      const username = req.oidc.user.nickname; 
+      res.send(username);
+    } else {
+      res.status(401).send('user not logged in'); 
+    }
+  });
 
 //route to retrieve all posts
 app.get('/posts', async (req, res) => {
@@ -51,8 +68,8 @@ app.get('/posts', async (req, res) => {
     })
 
 app.post('/posts', async (req, res) => {
-    const { user_id, post_title, post_content, created_at } = req.body;
-    const result = await createNewPost(user_id, post_title, post_content, created_at);
+    const { post_title, post_content, username, created_at } = req.body;
+    const result = await createNewPost(post_title, post_content, username, created_at);
     res.json(result);
 });
 

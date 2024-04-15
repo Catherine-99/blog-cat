@@ -23,15 +23,13 @@ async function getAllPosts() {
 }
 
 //create new blog post 
-async function createNewPost(user_id, post_title, post_content) {
+async function createNewPost(post_title, post_content, username) {
     const newPost = await pool.query(`
-    INSERT INTO PostTable (user_id, post_title, post_content, created_at)
+    INSERT INTO PostTable (post_title, post_content, username, created_at)
     VALUES (?, ?, ?, NOW())
-    `, [user_id, post_title, post_content])
+    `, [post_title, post_content, username])
     return newPost
 }
-
-
 
 
 module.exports = { getAllPosts, createNewPost};

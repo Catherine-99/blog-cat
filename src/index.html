@@ -11,7 +11,6 @@
 <body class="grid-container">
     <!--header with navigation and logo-->
     <header>
-        <img class="logo" src="images/catlogo 1.png">
         <nav class="header-nav">
             <button class="home-button" type="button">home</button>
             <button class="my-posts-button" type="button">my posts</button>
@@ -23,26 +22,26 @@
     <section class="top-section">
         <article class="profile-information">
             <!--logged in state-->
-            <img class="profile-picture" src="images/placeholder.png">
-            <p class="username">username</p>
-            <a class="logout-button" href="/logout/">log out</a>
+            <img id="profile-picture" src="images/profilephoto.png" style="display: none;">
+            <p id="username" style="display: none;">username</p>
+            <a id="logout-button" href="/logout/" style="display: none;">log out</a>
 
             <!--logged out state-->
-            <p class="prompt-text">log in or register</p>
-            <a class="login-button" href="/login/">login</a>
-            <a class="register-button" href="/login/">register</a>
+            <p id="prompt-text">log in or register</p>
+            <a id="login-button" href="/login/">login</a>
+            <a id="register-button" href="/login/">register</a>
         </article>
 
         <!--logged in state-->
-        <article class="new-post-section">
+        <article id="new-post-section">
             <textarea id="new-post-title" placeholder="title..." maxlength="5000"></textarea>
             <textarea id="new-post-textarea" placeholder="write your post here..." maxlength="5000"></textarea>
             <button id="post-button" type="submit">post</button>
         </article>
 
         <!--logged out state-->
-        <article class="new-post-logged-out">
-            <p class="logged-out-post-prompt">log in or register<br>to create posts</p>
+        <article id="new-post-logged-out">
+            <p id="logged-out-post-prompt">log in or register<br>to create posts</p>
         </article>
     </section>
 
