@@ -31,5 +31,16 @@ async function createNewPost(post_title, post_content, username) {
     return newPost
 }
 
+// delete a post 
+async function deletePost(postId) {
+    try {
+        const result = await pool.query('DELETE FROM PostTable WHERE post_id = ?', [postId]);
+        return { message: 'Post deleted' };
+    } catch (error) {
+        console.error('Error deleting post:', error);
+        throw error;
+    }
+}
 
-module.exports = { getAllPosts, createNewPost};
+
+module.exports = { getAllPosts, createNewPost , deletePost};

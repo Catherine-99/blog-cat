@@ -111,6 +111,7 @@ function displayPosts(posts) {
     posts.reverse().forEach(post => {
         const postElement = document.createElement('article');
         postElement.classList.add('blog-post');
+        postElement.dataset.postId = post.post_id;
 
         const titleElement = document.createElement('h2');
         titleElement.classList.add('post-title');
@@ -132,27 +133,14 @@ function displayPosts(posts) {
         dateElement.classList.add('date');
         dateElement.textContent = formattedDate;
 
-        const likeButton = document.createElement('button');
-        likeButton.classList.add('like-button');
-
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-        svg.setAttribute('viewBox', '0 0 26 26');
-
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('d', 'M17.869 3.889c-2.096 0-3.887 1.494-4.871 2.524c-.984-1.03-2.771-2.524-4.866-2.524C4.521 3.889 2 6.406 2 10.009c0 3.97 3.131 6.536 6.16 9.018c1.43 1.173 2.91 2.385 4.045 3.729c.191.225.471.355.765.355h.058c.295 0 .574-.131.764-.355c1.137-1.344 2.616-2.557 4.047-3.729C20.867 16.546 24 13.98 24 10.009c0-3.603-2.521-6.12-6.131-6.12');
-
         const postUsername = document.createElement('p');
         postUsername.classList.add('post-username');
         postUsername.textContent = post.username;
 
-        svg.appendChild(path);
-        likeButton.appendChild(svg);
 
         postElement.appendChild(titleElement);
         postElement.appendChild(contentElement);
         postElement.appendChild(dateElement);
-        postElement.appendChild(likeButton);
         postElement.appendChild(postUsername);
 
         mainFeed.appendChild(postElement);
@@ -161,12 +149,93 @@ function displayPosts(posts) {
 retrievePosts();
 
 
-//my posts button feature to filter by my posts
+//FILTER FOR MY POSTS WHEN LOGGED IN 
 
-//liked functionality 
+// event listener on 'my posts' button, checks if user is logged in, if logged in displays liked posts, otherwise prompt is displayed
+const myPostsButton = document.getElementById('my-posts-button');
+myPostsButton.addEventListener('click', async () => {
+    // check if the user is authenticated
+    myPostsButton.color = '#819A88';
+    const response = await fetch('/authstatus');
+    const isAuthenticated = await response.text();
 
-//liked button feature to filter by liked posts 
+    if (isAuthenticated === 'Logged in') {
+        console.log('user logged in');
+        // only display posts made by logged in user
+        toggleMyPostsDisplay();
 
-//clean up layout 
+        //add a delete button to each post in the my post section 
+        const postElements = document.querySelectorAll('.blog-post');
+        postElements.forEach(postElement => {
+            const deleteButton = document.createElement('button');
+            deleteButton.classList.add('delete-button');
 
-//clean up code (console logs, comments, etc)
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            svg.setAttribute('viewBox', '0 0 24 24');
+
+            const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path1.setAttribute('d', 'M9.25 3a.75.75 0 0 1 .75-.75h4a.75.75 0 0 1 .75.75v.75H19a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1 0-1.5h4.25z');
+
+            const path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path2.setAttribute('fill-rule', 'evenodd');
+            path2.setAttribute('d', 'M6.24 7.945a.5.5 0 0 1 .497-.445h10.526a.5.5 0 0 1 .497.445l.2 1.801a44.213 44.213 0 0 1 0 9.771l-.02.177a2.603 2.603 0 0 1-2.226 2.29a26.788 26.788 0 0 1-7.428 0a2.603 2.603 0 0 1-2.227-2.29l-.02-.177a44.239 44.239 0 0 1 0-9.77zm4.51 3.455a.75.75 0 0 0-1.5 0v7a.75.75 0 0 0 1.5 0zm4 0a.75.75 0 0 0-1.5 0v7a.75.75 0 0 0 1.5 0z');
+            path2.setAttribute('clip-rule', 'evenodd');
+
+            svg.appendChild(path1);
+            svg.appendChild(path2);
+           
+            deleteButton.appendChild(svg)
+            postElement.appendChild(deleteButton)
+        })
+
+        //attach event listener to delete posts when clicking on delete button 
+        document.querySelectorAll('.delete-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                console.log('clicked');
+                const postId = button.parentNode.dataset.postId;
+                const response = await fetch(`/posts/${postId}`, {
+                    method: 'DELETE'
+                });
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    console.error('Failed to delete post');
+                }
+            });
+        });
+    } else {
+        //hide all posts
+        console.log('not logged in');
+        const posts = document.querySelectorAll('.blog-post');
+        posts.forEach(post => {
+            post.style.display = 'none';
+        })
+        //display prompt message
+        const loggedOutPrompt = document.getElementById('logged-out-prompt');
+        loggedOutPrompt.style.display =  'block';
+    }
+});
+
+// function to toggle to my posts only 
+async function toggleMyPostsDisplay() {
+    const currentUsername = await getUsername();
+    const posts = document.querySelectorAll('.blog-post');
+
+    posts.forEach(post => {
+        const postUsername = post.querySelector('.post-username').textContent;
+        if (postUsername !== currentUsername) {
+            post.style.display = 'none';
+        } 
+    });
+};
+
+//HOME BUTTON 
+//event listener on homebutton, reloads page and displays all posts on home page 
+const homeButton = document.getElementById('home-button');
+homeButton.addEventListener('click', async () => {
+
+    location.reload();
+});
+
+

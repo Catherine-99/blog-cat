@@ -10,7 +10,7 @@ const { auth } = require('express-openid-connect');
 const dotenv = require("dotenv");
 dotenv.config({path: './.env'});
 
-const { getAllPosts, createNewPost } = require("./database");
+const { getAllPosts, createNewPost, deletePost } = require("./database");
 
 //config for auth0
 const config = {
@@ -67,11 +67,21 @@ app.get('/posts', async (req, res) => {
     res.json(posts);
     })
 
+//route for creating new post
 app.post('/posts', async (req, res) => {
     const { post_title, post_content, username, created_at } = req.body;
     const result = await createNewPost(post_title, post_content, username, created_at);
     res.json(result);
 });
 
-
-
+//route to delte a post 
+app.delete('/posts/:postId', async (req, res) => {
+    const postId = req.params.postId;
+    try {
+        const result = await deletePost(postId);
+        res.json(result);
+    } catch (error) {
+        console.error('Error deleting post:', error);
+        res.status(500).json({ error: 'Failed to delete post' });
+    }
+});

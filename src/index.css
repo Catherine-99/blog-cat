@@ -19,13 +19,6 @@ header {
     background-color: #1A172C;
 }
 
-.logo{
-    grid-column: 7;
-    grid-row: 1;
-    margin-top: 2rem;
-    margin-left: 0.2rem;
-}
-
 /* styling of top navigation bar */
 .header-nav{
     grid-row: 1;
@@ -67,7 +60,6 @@ header {
     gap: 1rem;
 }
 
-
 /* profile information card */
 .profile-information{
     display: grid;
@@ -79,7 +71,7 @@ header {
     overflow-wrap: break-word;
 }
 
-/* styling when logged in*/
+/* logged in state */
 #profile-picture{
     max-width: 100%;
     margin-left: 1rem;
@@ -115,6 +107,7 @@ header {
     background-color: #CD7CA4;
 }
 
+/* logged out state */
 #prompt-text{
     color: #CD7CA4;
     text-align: center;
@@ -133,7 +126,6 @@ header {
     margin-top: 2rem;
     text-decoration: none;
     padding-top: 0.3rem;
-    
 }
 
 #login-button:hover{
@@ -210,7 +202,6 @@ header {
     font-size: 0.8rem;  
 }
 
-
 #post-button{
     grid-row: 3;
     grid-column: 6;
@@ -242,7 +233,6 @@ header {
     grid-column: 3/10;
     display: grid;
     grid-template-columns: repeat(6,1fr);
-
 }
 
 #logged-out-post-prompt{
@@ -259,7 +249,6 @@ header {
 }
 
 
-
 /*MAIN FEED SECTION*/
 /* main feed container layout */
 #main-feed-container{
@@ -271,7 +260,7 @@ header {
 }
 
 /* logged out state message */
-.logged-out-prompt{
+#logged-out-prompt{
     text-align: center;
     color: #CD7CA4;
     margin: 3rem;
@@ -279,10 +268,9 @@ header {
     border: none;
     border-radius: 20px;
     padding: 5rem;
-    display: none;
 }
 
-/* blog post card styling including title, post content, like button, username and date*/
+/* blog post card styling including title, post content, username and date*/
 .blog-post{
     display: grid;
     grid-template-columns: repeat(8, 1fr);
@@ -322,141 +310,28 @@ header {
     color: #819A88;
 }
 
-.like-button{
+/* delete button for own posts in my posts section */
+.delete-button{
     background-color: transparent;
-    width: 2rem;
+    width: 2.3rem;
     border: none;
     grid-column: 8;
     grid-row: 1;
     justify-self: right;
 }
 
-.like-button svg{
+.delete-button svg{
     fill: #819A88;
 }
 
-.like-button svg:hover{
+.delete-button svg:hover{
     fill:#E0DFDD ;
 }
 
-.like-button svg:active{
+.delete-button svg:active{
     fill: #819A88;
 }
 
-
-
-/*LOG IN AND REGISTER FORM STYLING*/
-/* form container styling */
-.login-form{
-    grid-column: 5/10;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: #1A172C;
-    border: 1px solid #25213F;
-    border-radius: 20px;
-    padding: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: 2rem;
-}
-
-.login-form label{
-    font-size: 1rem;
-    color: #819A88;
-    grid-column: 2;
-    margin-bottom: 0.3rem;
-    text-align: center;
-}
-
-.login-form input{
-    grid-column: 2;
-    margin-bottom: 1rem;
-    background-color: #1A172C;
-    border: 1px solid #819A88;
-    border-radius: 20px;
-    color: #E0DFDD;
-    padding: 0.5rem;
-}
-
-.username-label{
-    grid-row: 1;
-}
-
-#username-input{
-    grid-row: 2;
-}
-
-.email-label{
-    grid-row: 3;
-}
-
-#email-input{
-    grid-row: 4;
-}
-
-.password-label{
-    grid-row: 5;
-}
-
-#password-input{
-    grid-row: 6;
-}
-
-#confirm-login{
-    grid-row: 7;
-    grid-column: 2;
-    background-color: #CD7CA4;
-    border: 2px solid #814E69;
-    border-radius: 30px;
-    margin-top: 2rem;
-    padding: 0.5rem;
-    font-weight: bold;
-    color: #151324;
-}
-
-#confirm-login:hover{
-    background-color: #814E69;
-}
-
-#confirm-login:active{
-    background-color: #CD7CA4;
-}
-
-/* register button styling for register form */
-#confirm-register{
-    grid-row: 7;
-    grid-column: 2;
-    background-color: #CD7CA4;
-    border: none;
-    border-radius: 30px;
-    margin-top: 2rem;
-    padding: 0.5rem;
-    font-weight: bold;
-    color: #151324;
-}
-
-#confirm-register:hover{
-    background-color: #814E69;
-}
-
-#confirm-register:active{
-    background-color: #CD7CA4;
-}
-
-/* honeypot hidden styling */
-#honeypot {
-    display: none;
-}
-
-#message-box{
-    grid-row: 3;
-    grid-column: 7;
-    text-align: center;
-    
-}
-#alert-text{
-    color:#819A88;
-}
 
 
 /*MEDIA QUERIES*/
