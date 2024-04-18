@@ -105,8 +105,11 @@ async function retrievePosts() {
 }
 
 //display all posts on main feed: 
+const homeButton = document.getElementById('home-button');
+
 function displayPosts(posts) {
     const mainFeed = document.getElementById('main-feed-container');
+    homeButton.classList.add('active');
 
     posts.reverse().forEach(post => {
         const postElement = document.createElement('article');
@@ -155,7 +158,8 @@ retrievePosts();
 const myPostsButton = document.getElementById('my-posts-button');
 myPostsButton.addEventListener('click', async () => {
     // check if the user is authenticated
-    myPostsButton.color = '#819A88';
+    myPostsButton.classList.add('active');
+    homeButton.classList.remove('active');
     const response = await fetch('/authstatus');
     const isAuthenticated = await response.text();
 
@@ -232,9 +236,8 @@ async function toggleMyPostsDisplay() {
 
 //HOME BUTTON 
 //event listener on homebutton, reloads page and displays all posts on home page 
-const homeButton = document.getElementById('home-button');
 homeButton.addEventListener('click', async () => {
-
+    homeButton.classList.add('active');
     location.reload();
 });
 

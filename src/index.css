@@ -6,9 +6,13 @@
     font-family: "Inter", sans-serif;
     display: grid;
     grid-template-columns: repeat(13, 1fr);
-    max-width: 1500px;
     margin: 0 auto;
     row-gap: 1rem;
+}
+
+section {
+    max-width: 1500px;
+    min-width: 323px;
 }
 
 /*HEADER STYLING AND POSITIONING*/
@@ -28,7 +32,7 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-content: space-evenly;
+    align-content: space-around;
     margin: 1rem;
     padding: 1rem;
 }
@@ -50,6 +54,9 @@ header {
     color: #CD7CA4;
 }
 
+.active {
+    color: #819A88 !important;
+}
 
 /*TOP SECTION STYLING*/
 .top-section{
@@ -88,7 +95,7 @@ header {
     background-color: #CD7CA4;
     border: none;
     border-radius: 30px;
-    padding: 0.2rem 1rem 0.2rem 1rem;
+    padding: 0.5rem 1rem 0.2rem 1rem;
     margin: 1rem;
     max-width: 100%;
     color: #151324;
@@ -233,6 +240,7 @@ header {
     grid-column: 3/10;
     display: grid;
     grid-template-columns: repeat(6,1fr);
+    padding-top: 3.5rem;
 }
 
 #logged-out-post-prompt{
@@ -300,6 +308,7 @@ header {
     grid-row: 3;
     grid-column: 1;
     font-size: 0.8rem;
+    margin-left: 1rem;
     color: #819A88;
 }
 
@@ -336,14 +345,18 @@ header {
 
 /*MEDIA QUERIES*/
 /* breakpoint 1 */
-@media (max-width: 887px) {
+@media (max-width: 1180px) {
     .profile-information{
         grid-row: 1;
         grid-column: 1/10;
     }
 
+    #new-post-section{
+        grid-row: 2;
+        grid-column: 1/10;
+    }
 
-    .new-post-section{
+    #new-post-logged-out{
         grid-row: 2;
         grid-column: 1/10;
     }
@@ -352,25 +365,20 @@ header {
         padding: 0.5rem;
     }
 
-    .logout-button{
-        max-width: 50%;
+    #logout-button{
+        padding: 0.5rem 1rem 0.5rem 1rem;
     }   
 }
 
-/* breakpoint 2 */
-@media (max-width: 500px) {
-    .login-form{
-        display: flex;
-        flex-direction: column;
+@media (max-width: 365px) {
+    section{
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
-/* breakpoint 3 */
+/* breakpoint 2 */
 @media (max-width: 322px) {
-    .login-form{
-        min-width: 100px;
-    }
-
     .logout-button{
         max-width: 100%;
     }
