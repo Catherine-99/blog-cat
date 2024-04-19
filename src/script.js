@@ -4,7 +4,6 @@ async function checkAuthentication() {
     const response = await fetch('/authstatus');
     const isAuthenticated = await response.text();
     if (isAuthenticated === 'Logged in') {
-      console.log('User is authenticated');
       // show logged in state
       document.getElementById('profile-picture').style.display = 'block';
       document.getElementById('username').style.display = 'block';
@@ -16,7 +15,6 @@ async function checkAuthentication() {
       document.getElementById('new-post-logged-out').style.display = 'none';
     } else {
         //hide logged in state
-        console.log('User is not authenticated');
         document.getElementById('profile-picture').style.display = 'none';
         document.getElementById('username').style.display = 'none';
         document.getElementById('logout-button').style.display = 'none';
@@ -51,16 +49,13 @@ const postButton = document.getElementById('post-button');
 let currentTitle = '';
 let currentContent = '';
 
-
 //event listener on post button with function to send new blog post title, content and user_id to database when post button is clicked
 postButton.addEventListener('click', async function() {
-    console.log('clicked');
     //setting current title and content = input from text area
     currentTitle = postTitle.value;
     currentContent = postContent.value;
     let currentUsername = await getUsername();
     
-
     //information to send to database
     const postBody = {
         post_title: currentTitle,
@@ -97,7 +92,6 @@ async function retrievePosts() {
         if (response.ok) {
             const posts = await response.json();
             displayPosts(posts);
-            console.log(posts);
         }
     } catch (error) {
         console.log(error);
@@ -164,7 +158,6 @@ myPostsButton.addEventListener('click', async () => {
     const isAuthenticated = await response.text();
 
     if (isAuthenticated === 'Logged in') {
-        console.log('user logged in');
         // only display posts made by logged in user
         toggleMyPostsDisplay();
 
@@ -196,7 +189,6 @@ myPostsButton.addEventListener('click', async () => {
         //attach event listener to delete posts when clicking on delete button 
         document.querySelectorAll('.delete-button').forEach(button => {
             button.addEventListener('click', async () => {
-                console.log('clicked');
                 const postId = button.parentNode.dataset.postId;
                 const response = await fetch(`/posts/${postId}`, {
                     method: 'DELETE'
@@ -210,7 +202,6 @@ myPostsButton.addEventListener('click', async () => {
         });
     } else {
         //hide all posts
-        console.log('not logged in');
         const posts = document.querySelectorAll('.blog-post');
         posts.forEach(post => {
             post.style.display = 'none';

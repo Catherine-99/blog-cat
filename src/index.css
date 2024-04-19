@@ -41,7 +41,7 @@ header {
     background-color: transparent;
     border: none;
     font-size: 1rem;
-    color:#E4E1DC;
+    color:#BFBAB4;
     font-weight: bold;
     margin: 0 1rem 0 1rem;
 }
@@ -163,7 +163,7 @@ header {
 }
 
 #register-button:active{
-    background-color: #E0DFDD;
+    background-color: #BFBAB4;
 }
 
 
@@ -188,7 +188,7 @@ header {
     border-radius: 20px;
     background-color: #151324;
     height: 7rem;
-    color: #E0DFDD;
+    color: #BFBAB4;
     padding: 1rem;
     font-size: 0.8rem;  
     max-height: 1rem;
@@ -204,9 +204,14 @@ header {
     border-radius: 20px;
     background-color: #151324;
     height: 7rem;
-    color: #E0DFDD;
+    color: #BFBAB4;
     padding: 1rem;
     font-size: 0.8rem;  
+}
+
+textarea {
+    font-family:"Inter", sans-serif;
+   
 }
 
 #post-button{
@@ -297,11 +302,12 @@ header {
 }
 
 .post-content{
-    grid-column: 1/8;
+    grid-column: 1/9;
     grid-row: 2;
     font-size: 1rem;
-    color: #E4E1DC;
+    color: #BFBAB4;
     margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .post-username{
@@ -334,7 +340,7 @@ header {
 }
 
 .delete-button svg:hover{
-    fill:#E0DFDD ;
+    fill:#BFBAB4 ;
 }
 
 .delete-button svg:active{
