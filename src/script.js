@@ -71,7 +71,7 @@ postButton.addEventListener('click', async function() {
         },
         body: JSON.stringify(postBody)
         })
-        //if response was successful, clear text area and reload page 
+        //if response was successful, clear text area and reload page to display new post on main feed
         if (response.ok) {
             postTitle.value = '';
             postContent.value = '';    
@@ -84,7 +84,6 @@ postButton.addEventListener('click', async function() {
 
 
 //DISPLAY POSTS ON MAIN FEED
-
 //retrieve posts from database:
 async function retrievePosts() {
     try{
@@ -147,7 +146,6 @@ retrievePosts();
 
 
 //FILTER FOR MY POSTS WHEN LOGGED IN 
-
 // event listener on 'my posts' button, checks if user is logged in, if logged in displays liked posts, otherwise prompt is displayed
 const myPostsButton = document.getElementById('my-posts-button');
 myPostsButton.addEventListener('click', async () => {
@@ -186,7 +184,7 @@ myPostsButton.addEventListener('click', async () => {
             postElement.appendChild(deleteButton)
         })
 
-        //attach event listener to delete posts when clicking on delete button 
+        //attach event listeners to delete buttons, that delete posts when clicked
         document.querySelectorAll('.delete-button').forEach(button => {
             button.addEventListener('click', async () => {
                 const postId = button.parentNode.dataset.postId;

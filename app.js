@@ -23,7 +23,7 @@ const config = {
   };
 
 
-//starting server on port 8000
+//starting server on port 3000
 const app = express();
 app.listen(3000, () => {
     console.log("Port 3000: server is running")
@@ -74,7 +74,7 @@ app.post('/posts', async (req, res) => {
     res.json(result);
 });
 
-//route to delte a post 
+//route to delete a post 
 app.delete('/posts/:postId', async (req, res) => {
     const postId = req.params.postId;
     try {

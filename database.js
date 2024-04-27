@@ -42,5 +42,5 @@ async function deletePost(postId) {
     }
 }
 
-
+//export functions 
 module.exports = { getAllPosts, createNewPost , deletePost};
