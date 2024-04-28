@@ -13,8 +13,6 @@
   <a href="#about-the-project">About the Project</a>
   <a href="#getting-started">Getting Started</a>
   <a href="#roadmap">Roadmap</a>
-  <a href="#contributing">Contributing</a>
-  <a href="#license">License</a>
 </div>
 <br>
 
