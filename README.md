@@ -8,12 +8,23 @@
 <p align="center">
   Blog-cat is a basic microblogging web app that allows users to share simple text based posts and discover other users posts on the homepage
 </p>
+
+<div  style="display: flex;" align="center">
+  <a href="#about-the-project">About the Project</a>
+  <a href="#getting-started">Getting Started</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#contributing">Contributing</a>
+  <a href="#license">License</a>
+</div>
+<br>
+
 <img width="1466" alt="blogcat-homepage-loggedin" src="https://github.com/Catherine-99/blog-cat/assets/142168043/03c57135-6adc-428d-b07b-d88ec782243e">
+
 
 
 <h2>About the Project</h2>
 <h3>Description</h3>
-<p>This app was a personal project, it utilises a basic CRUD API for data management, which was implemented using MySQL. It also integrates Auth0 to securely handle user authentication.</p>
+<p>This web application was a personal project. Its primary aim was to translate a design concept into a working application, while also gaining practical experience in connecting the frontend with the backend. <br> The app utilises a basic CRUD API for data management, which was implemented using MySQL. It also integrates Auth0 to securely handle user authentication.</p>
 <p>Users can:</p>
 
 <ul>
@@ -76,7 +87,7 @@
   <li>MYSQL2: Install MySQL2, a MySQL client for Node.js, using npm</li>
   <li>Auth0: Set up an Auth0 account and configure authentication for the application by refering to the official Auth0 documentation for instructions</li>
 </ul>
-
+<br>
 
 <h3>Installation</h3>
 
@@ -120,17 +131,25 @@ SECRET=your_auth0_secret</code>
   username VARCHAR(255) NOT NULL
 );</code>
 
+<br>
+
 <h3>Running the App</h3>
 <p>1. Start the Express server:</p>
 
 <code>node app.js</code>
 <br>
 <p>2. Access the application in your web browser at http://localhost:8080.</p>
+<br>
 
 <h2>Roadmap</h2>
+<p>In the future I would like to add the following functionalities to the app:</p>
+<ul>
+  <li>user profile pages</li>
+  <li>follow other users</li>
+  <li>liking posts</li>
+  <li>editing posts</li>
+</ul>
 
-<h2>Contributing</h2>
 
-<h2>License</h2>
 
 
