@@ -28,14 +28,14 @@
 
 <div style="display: flex;">
   <p>creating a new post and deleting posts</p>
-  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/a10218d5-eab3-458f-9f87-eb8e241b4c5d"  width="450">
-  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/69d0d5e2-4344-431e-b9e1-3c814dc1509c"  width="450">
+  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/a10218d5-eab3-458f-9f87-eb8e241b4c5d"  width="400">
+  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/69d0d5e2-4344-431e-b9e1-3c814dc1509c"  width="400">
 </div>
 
 <div style="display: flex;">
   <p>logged out state and log in screen</p>
-  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/9119a6c1-5b20-4e46-9048-a375be1d0763" width="450">
-  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/c6794b24-87f0-4676-a90b-72eb430658e2" width="450">
+  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/9119a6c1-5b20-4e46-9048-a375be1d0763" width="400">
+  <img src="https://github.com/Catherine-99/blog-cat/assets/142168043/c6794b24-87f0-4676-a90b-72eb430658e2" width="400">
 </div>
 
 <br>
