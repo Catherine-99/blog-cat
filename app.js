@@ -23,10 +23,10 @@ const config = {
   };
 
 
-//starting server on port 3000
+//starting server on port 8080
 const app = express();
-app.listen(3000, () => {
-    console.log("Port 3000: server is running")
+app.listen(8080, () => {
+    console.log("Port 8080: server is running")
 });
 
 
